@@ -11,7 +11,8 @@ SCHEDULER.every '2s' do
     send_event('charge', { value: json['USOC'] })
     send_event('battery-power', { current: json['Pac_total_W'] })
     send_event('consumption', { current: json['Consumption_W'] })
-    send_event('production', { current: json['GridFeedIn'] }) 
+    send_event('grid', { current: json['GridFeedIn'] }) 
+    send_event('production', { current: json['Production_W'] })
   rescue StandardError
     false
   end
