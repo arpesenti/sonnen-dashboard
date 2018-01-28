@@ -1,7 +1,7 @@
 require 'net/http'
 require 'json'
 
-BATTERY_IP = 192.168.1.110
+BATTERY_IP = '192.168.1.110'
 uri = URI('http://' + BATTERY_IP + ':8080/api/v1/status')
 
 SCHEDULER.every '2s' do
