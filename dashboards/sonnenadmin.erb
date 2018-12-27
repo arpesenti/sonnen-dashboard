@@ -1,0 +1,58 @@
+  <% content_for :title do %>Sonnen Battery<% end %>
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="2">
+      <div data-id="charge" data-view="Meter" data-title="Charge" data-min="0" data-max="100" data-suffix="%"></div>
+    </li>
+
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="battery-power" data-view="Number" data-title="Battery Power" data-moreinfo="In Watts"></div>
+    </li>
+
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="consumption" data-view="Number" data-title="Consumption" data-moreinfo="In Watts"></div>
+    </li>
+    
+    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="production" data-view="Number" data-title="Production" data-moreinfo="In Watts"></div>
+    </li>
+    
+    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="grid" data-view="Number" data-title="Grid Feed In" data-moreinfo="In Watts"></div>
+    </li>
+  </ul>
+  <form id="target" action="destination.html">
+    Mode:
+    <input type="radio" name="mode" value="self" checked="checked">Self Consumption
+    <input type="radio" name="mode" value="manual">Manual
+    <br/>
+    Buffer:
+    <input type="number" min="0" max="100" name="buffer" value="0" required>
+    <br/>
+    Charge:
+    <input type="number" id="charge" min="0" max="3300" name="charge" value="0" required hidden>
+    <br/>
+    <input type="submit" value="Save">
+  </form>
+</div>
+<script>
+$( "#target" ).submit(function( event ) {
+  var url = "http://SB-62312.local:8080";
+  if ($("input[name='mode']".val() === 'manual') {
+    $.get(url + "/api/setting/, {"EM_OperatingMode": "1"});
+    $.get(url + "/api/v1/setpoint/charge/" + $("input[name='charge']").val());
+  } else {
+    $.get(url, {"EM_OperatingMode": "2"});
+  }
+  EM_USOC
+  $.get(url + "/api/setting/, {"EM_USOC": $("input[name='buffer']").val()});
+});
+
+$( ":radio" ).change(function() {
+  if ($(this).val() === 'manual') {
+    $("#charge").show();
+  } else {
+    $("#charge").hide();
+  }
+});
+</script>
