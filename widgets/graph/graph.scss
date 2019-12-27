@@ -1,7 +1,9 @@
 // ----------------------------------------------------------------------------
 // Sass declarations
 // ----------------------------------------------------------------------------
-$background-color:  #dc5945;
+$background-color:  #47bbb3;
+$background-color-green: #4bbb47;
+$background-color-red: #dc5945;
 
 $title-color:       rgba(255, 255, 255, 0.7);
 $moreinfo-color:    rgba(255, 255, 255, 0.3);
@@ -14,6 +16,15 @@ $tick-color:        rgba(0, 0, 0, 0.4);
 .widget-graph {
 
   background-color: $background-color;
+
+  &.mod-green {
+    background-color: $background-color-green;
+  }
+
+  &.mod-red {
+    background-color: $background-color-red;
+  }
+
   position: relative;
 
 
@@ -60,6 +71,11 @@ $tick-color:        rgba(0, 0, 0, 0.4);
 
   .domain {
     display: none;
+  }
+
+  .updated-at {
+    color: rgba(0, 0, 0, 0.3);
+    bottom: 22px;
   }
 
 }
