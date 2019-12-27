@@ -29,14 +29,11 @@ class Dashing.Graph extends Dashing.Widget
     @graph.series[0].data = @get('points') if @get('points')
 
     unit = {}
-    unit.formatTime = (d) ->
-      d.toUTCString().match(/(\d+:\d+):/)[1]
+    unit.formatTime = (d) -> d.toUTCString().match(/(\d+:\d+):/)[1]
+    unit.formatter = (d) -> @formatTime d
+    unit.name = '15 minute'
+    unit.seconds = 900
 
-    unit.formatter = (d) ->
-      @formatTime d
-
-    unit.name = '5 minute'
-    unit.seconds = 300
     x_axis = new Rickshaw.Graph.Axis.Time(graph: @graph, timeUnit: unit)
     y_axis = new Rickshaw.Graph.Axis.Y(graph: @graph, tickFormat: Rickshaw.Fixtures.Number.formatKMBT)
     @graph.render()
