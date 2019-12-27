@@ -28,7 +28,9 @@ class Dashing.Graph extends Dashing.Widget
 
     @graph.series[0].data = @get('points') if @get('points')
 
-    x_axis = new Rickshaw.Graph.Axis.Time(graph: @graph)
+    time = new Rickshaw.Fixtures.Time()
+    minutes = time.unit('minute');
+    x_axis = new Rickshaw.Graph.Axis.Time(graph: @graph, timeUnit: minutes)
     y_axis = new Rickshaw.Graph.Axis.Y(graph: @graph, tickFormat: Rickshaw.Fixtures.Number.formatKMBT)
     @graph.render()
 
