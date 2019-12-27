@@ -19,8 +19,6 @@ class ChartRepo
     @history << { 'x' => DateTime.now.to_time.to_i, 'y' => value }
     @history = @history.last(CHART_HISTORY_COUNT)
 
-    puts @history.length
-
     @counter += 1
     @counter %= CHART_SKIP_NUMBER
   end

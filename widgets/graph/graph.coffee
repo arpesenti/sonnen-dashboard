@@ -30,7 +30,7 @@ class Dashing.Graph extends Dashing.Widget
 
     time = new Rickshaw.Fixtures.Time()
     minutes = time.unit('minute');
-    x_axis = new Rickshaw.Graph.Axis.Time(graph: @graph, timeUnit: minutes)
+    x_axis = new Rickshaw.Graph.Axis.Time(graph: @graph, timeUnit: minutes, pixelsPerTick: 30)
     y_axis = new Rickshaw.Graph.Axis.Y(graph: @graph, tickFormat: Rickshaw.Fixtures.Number.formatKMBT)
     @graph.render()
 
