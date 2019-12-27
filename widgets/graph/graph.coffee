@@ -29,7 +29,7 @@ class Dashing.Graph extends Dashing.Widget
     @graph.series[0].data = @get('points') if @get('points')
 
     unit = {}
-    unit.formatTime = (d) -> d.toUTCString().match(/(\d+:\d+):/)[1]
+    unit.formatTime = (d) -> d.getHours() + ':' + d.getMinutes()
     unit.formatter = (d) -> @formatTime d
     unit.name = '15 minute'
     unit.seconds = 900

@@ -3,7 +3,7 @@ require 'json'
 
 BATTERY_HOSTNAME = 'SB-62312.local'
 CHART_HISTORY_COUNT = 150
-CHART_SKIP_NUMBER = 4
+CHART_SKIP_NUMBER = 10
 uri = URI('http://' + BATTERY_HOSTNAME + ':8080/api/v1/status')
 
 class ChartRepo
