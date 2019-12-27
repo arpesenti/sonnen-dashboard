@@ -1,7 +1,7 @@
 class Dashing.Graph extends Dashing.Widget
 
   @accessor 'current', ->
-    return @get('displayedValue') if @get('displayedValue')
+    return @get('displayedValue') if @get('displayedValue')?
     points = @get('points')
     if points
       points[points.length - 1].y
@@ -16,6 +16,7 @@ class Dashing.Graph extends Dashing.Widget
       width: width
       height: height
       renderer: @get("graphtype")
+      min: "auto"
       series: [
         {
         color: "#fff",
