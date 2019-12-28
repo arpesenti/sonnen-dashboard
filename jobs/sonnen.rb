@@ -2,22 +2,28 @@ require 'net/http'
 require 'json'
 
 BATTERY_HOSTNAME = 'SB-62312.local'
-CHART_HISTORY_COUNT = 30
+CHART_HISTORY_COUNT = 150
+CHART_SKIP_NUMBER = 10
 uri = URI('http://' + BATTERY_HOSTNAME + ':8080/api/v1/status')
 
 class ChartRepo
-  @history
 
   def initialize()
     @history = []
+    @counter = 0
   end
 
   def add(value)
-    @history << { 'x' => DateTime.now.to_time.to_i, 'y' => value}
+    
+    @history.pop if @counter != 0
+    @history << { 'x' => DateTime.now.to_time.to_i, 'y' => value }
     @history = @history.last(CHART_HISTORY_COUNT)
+
+    @counter += 1
+    @counter %= CHART_SKIP_NUMBER
   end
 
-  attr_accessor :history
+  attr_accessor :history, :counter
 end
 
 battery_power_repo = ChartRepo.new()
