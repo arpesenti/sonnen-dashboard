@@ -1,2 +1,5 @@
 *DS_STORE
 history.yml
+/.env
+.bundle/
+.byebug_history

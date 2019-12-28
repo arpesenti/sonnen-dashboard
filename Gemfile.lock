@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     backports (3.15.0)
+    byebug (11.0.1)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -59,6 +60,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug (~> 11.0)
   smashing
 
 BUNDLED WITH
