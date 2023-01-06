@@ -2,11 +2,14 @@
 // Sass declarations
 // ----------------------------------------------------------------------------
 $background-color:  #9c4274;
+$background-color-orange: #FD5308;
 
 $title-color:       rgba(255, 255, 255, 0.7);
 $moreinfo-color:    rgba(255, 255, 255, 0.3);
 
 $meter-background:  darken($background-color, 15%);
+$meter-background-orange:  darken($background-color-orange, 15%);
+
 
 // ----------------------------------------------------------------------------
 // Widget-meter styles
@@ -30,6 +33,13 @@ $meter-background:  darken($background-color, 15%);
 
   .updated-at {
     color: rgba(0, 0, 0, 0.3);
+  }
+
+  &.mod-orange {
+    background-color: $background-color-orange;
+    input.meter {
+      background-color: $meter-background-orange;
+    }
   }
 
 }
