@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+  sonnen-dashboard:
+    build: './'
+    restart: unless-stopped
+    ports: 
+      - 3030:3030

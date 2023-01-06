@@ -55,6 +55,8 @@ GEM
     tilt (2.0.10)
     tzinfo (2.0.1)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2022.7)
+      tzinfo (>= 1.0.0)
 
 PLATFORMS
   ruby
@@ -62,6 +64,7 @@ PLATFORMS
 DEPENDENCIES
   dotenv (~> 2.7)
   smashing
+  tzinfo-data
 
 BUNDLED WITH
-   1.17.2
+   2.1.4

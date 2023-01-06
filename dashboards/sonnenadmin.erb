@@ -37,7 +37,7 @@
 </div>
 <script>
 $( "#target" ).submit(function( event ) {
-  var url = "http://SB-62312.local:8080";
+  var url = "http://192.168.1.125:8080";
   if ($("input[name='mode']".val() === 'manual') {
     $.get(url + "/api/setting/, {"EM_OperatingMode": "1"});
     $.get(url + "/api/v1/setpoint/charge/" + $("input[name='charge']").val());
